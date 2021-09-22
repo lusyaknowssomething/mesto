@@ -1,0 +1,24 @@
+.profile__edit-button {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  padding-top: 15px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: opacity .5s;
+}
+
+.profile__edit-button:hover {
+  opacity: 0.6;
+}
+
+@media (max-width: 550px) {
+  .profile__edit-button {
+    padding-top: 8px;
+    width: 18px;
+    height: 18px;
+  }
+}
+
