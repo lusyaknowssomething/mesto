@@ -4,7 +4,7 @@
   overflow: hidden;
 }
 
-@media (max-width: 720px) and (min-width: 500px) {
+@media (max-width: 720px) and (min-width: 499px) {
   .profile__avatar {
     grid-row-start: 1;
     grid-row-end: 3;
