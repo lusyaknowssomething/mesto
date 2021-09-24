@@ -4,6 +4,9 @@
   height: 32px;
   top: -40px;
   right: -40px;
+  background: url(../../../images/close_icon.svg) no-repeat;
+  background-size: cover;
+  border: none;
   cursor: pointer;
   transition: opacity .5s;
 }

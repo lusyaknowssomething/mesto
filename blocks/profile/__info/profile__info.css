@@ -3,11 +3,11 @@
   grid-template-columns: auto 1fr;
   column-gap: 18px;
   row-gap: 7px;
+  max-width: 550px;
 }
 
 @media (max-width: 500px) {
   .profile__info {
-    justify-items: center;
     column-gap: 10px;
     padding-left: 22px;
   }
