@@ -21,4 +21,5 @@
 Выполнила проект Хатанзейская Людмила - студентка Яндекс.Практикума.
 
 *Ссылка на GitHub Pages:*
+* https://lusyaknowssomething.github.io/mesto/
 
