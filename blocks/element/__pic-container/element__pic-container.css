@@ -1,0 +1,4 @@
+.element__pic-container{
+  grid-area: picture;
+  height: 100%;
+}

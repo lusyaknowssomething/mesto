@@ -25,45 +25,15 @@
           <button type="button" class="profile__add-button"><img class="profile__add-icon" src="./images/add_button.svg" alt=""></button>
         </section>
         <section class="elements page__elements" aria-label="Блок с карточками">
-          <article class="element">
-            <img src="./images/Karachaevsk.jpg" alt="Карачаевск" class="element__picture">
-            <h2 class="element__title">Карачаевск</h2>
-            <button type="button" class="element__like"></button>
-          </article>
-          <article class="element">
-            <img src="./images/Elbrus.jpg" alt="Эльбрус" class="element__picture">
-            <h2 class="element__title">Гора Эльбрус</h2>
-            <button type="button" class="element__like"></button>
-          </article>
-          <article class="element">
-            <img src="./images/dombay.jpg" alt="Домбай" class="element__picture">
-            <h2 class="element__title">Домбай</h2>
-            <button type="button" class="element__like"></button>
-          </article>
-          <article class="element">
-            <img src="./images/Elbrus.jpg" alt="Эльбрус" class="element__picture">
-            <h2 class="element__title">Гора Эльбрус</h2>
-            <button type="button" class="element__like"></button>
-          </article>
-          <article class="element">
-            <img src="./images/dombay.jpg" alt="Домбай" class="element__picture">
-            <h2 class="element__title">Домбай</h2>
-            <button type="button" class="element__like"></button>
-          </article>
-          <article class="element">
-            <img src="./images/Karachaevsk.jpg" alt="Карачаевск" class="element__picture">
-            <h2 class="element__title">Карачаево-Черкесия</h2>
-            <button type="button" class="element__like"></button>
-          </article>
         </section>
       </main>
       <footer class="footer page__footer">
         <p class="footer__author">&copy; 2021 Mesto Russia. Хатанзейская Людмила</p>
       </footer>
     </div>
-    <div class="popup">
+    <div class="popup popup_type_edit">
       <div class="popup__container">
-        <button type="button" class="popup__close"></button>
+        <button type="button" class="popup__close popup__close_edit"></button>
         <div class="popup__content">
           <h2 class="popup__title">Редактировать профиль</h2>
           <form class="popup__form" action="#" method="post" name="popup">
@@ -74,6 +44,38 @@
         </div>
       </div>
     </div>
+    <div class="popup popup_type_new-card">
+      <div class="popup__container">
+        <button type="button" class="popup__close"></button>
+        <div class="popup__content">
+          <h2 class="popup__title">Новое место</h2>
+          <form class="popup__form" action="#" method="post" name="popup">
+            <input class="popup__input popup__input_element_description" placeholder ="Название" type="text" name="name" value="">
+            <input class="popup__input popup__input_element_link" placeholder ="Ссылка на картинку" type="text" name="link" value="">
+            <button class="popup__submit" type="submit">Создать</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="popup popup_type_image">
+      <div class="popup__container popup__container_type_image">
+        <button type="button" class="popup__close"></button>
+        <div class="popup__content">
+          <img class="popup__picture" src="#" alt="Увеличенная картинка">
+          <p class="popup__name"></p>
+        </div>
+      </div>
+    </div>
+    <template class="element__template">
+      <article class="element">
+        <div class="element__pic-container">
+          <img src="" alt="" class="element__picture">
+        </div>
+        <h2 class="element__title"></h2>
+        <button type="button" class="element__like"></button>
+        <button type="button" class="element__delete"></button>
+      </article>
+    </template>
     <script src="./scripts/index.js"></script>
   </body>
 </html>

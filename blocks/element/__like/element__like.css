@@ -4,7 +4,7 @@
   width: 22px;
   height: 19px;
   cursor: pointer;
-  background: url(../../../images/like_disabled.svg) no-repeat;
+  background: url(../../../images/like_disabled.svg) center no-repeat;
   border: none;
   margin: 0 20px 0 0;
   transition: opacity .5s;
