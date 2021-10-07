@@ -4,11 +4,11 @@ const popupEditBtn = document.querySelector('.profile__edit-button');
 const popupEditCloseBtn = popupEditProfile.querySelector('.popup__close_type_edit');
 
 // Находим форму в DOM
-const formElement = popupEditProfile.querySelector('.popup__form');
+const popupEditFormElement = popupEditProfile.querySelector('.popup__form');
 
 // Находим поля формы в DOM
-const nameInput = formElement.querySelector('.popup__input_profile_name');
-const jobInput = formElement.querySelector('.popup__input_profile_job');
+const nameInput = popupEditFormElement.querySelector('.popup__input_profile_name');
+const jobInput = popupEditFormElement.querySelector('.popup__input_profile_job');
 
 // Находим title и subtitle в DOM (сюда вставляются значения из формы редактирования)
 const profileTitle = document.querySelector('.profile__title');
@@ -34,16 +34,16 @@ const popupImageCloseBtn = imagePopup.querySelector('.popup__close')
 
 // Функция открытия попапа
 function openPopup (popup) {
-  popup.classList.toggle('popup_opened');
+  popup.classList.add('popup_opened');
 };
 
 // Функция закрытия попапа
 function closePopup (popup) {
-  popup.classList.toggle('popup_opened');
+  popup.classList.remove('popup_opened');
 };
 
 // Функция для попапа редактирования (меняет класс opened и записывает в value значения из title и subtitle)
-function toggleEditProfile () {
+function openEditProfile () {
   openPopup(popupEditProfile);
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileSubtitle.textContent;
@@ -54,7 +54,7 @@ function handleProfileFormSubmit (evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.Так мы можем определить свою логику отправки
   profileTitle.textContent = nameInput.value; //вставляем значение из формы в title
   profileSubtitle.textContent = jobInput.value; //вставляем значение из формы в subtitle
-  openPopup(popupEditProfile); //вызываем функцию редактирования попапа
+  closePopup(popupEditProfile); //вызываем функцию редактирования попапа
 }
 
 // функция по созданию карточки
@@ -105,7 +105,7 @@ function handlerNewCardSubmit(evt) {
     link: cardLinkValue,
   });
 
-  openPopup(newCardPopup);
+  closePopup(newCardPopup);
   evt.target.reset();
 }
 
@@ -118,9 +118,14 @@ function handlerPreviewPicture(data) {
   openPopup(imagePopup);
 }
 
-popupEditBtn.addEventListener('click', toggleEditProfile); //слушатель по кнопке редактирования
-popupEditCloseBtn.addEventListener('click', toggleEditProfile); //слушатель по кнопке закрытия попапа редактирования
-formElement.addEventListener('submit', handleProfileFormSubmit); //слушатель по кнопке "сохранить" в попапе редактирования
+popupEditBtn.addEventListener('click', openEditProfile); //слушатель по кнопке редактирования
+
+//слушатель по кнопке закрытия попапа редактирования
+popupEditCloseBtn.addEventListener('click', () =>  {
+  closePopup(popupEditProfile);
+});
+
+popupEditFormElement.addEventListener('submit', handleProfileFormSubmit); //слушатель по кнопке "сохранить" в попапе редактирования
 
 //слушатель по по кнопке открытия попапа добавления карточек
 popupCardOpenBtn.addEventListener('click', () => {

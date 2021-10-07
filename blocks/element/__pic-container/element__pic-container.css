@@ -2,6 +2,7 @@
   grid-area: picture;
   height: 100%;
   transition: transform .5s;
+  cursor: pointer;
 }
 
 .element__pic-container:hover {
