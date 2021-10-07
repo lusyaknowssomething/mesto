@@ -1,4 +1,9 @@
-.element__pic-container{
+.element__pic-container {
   grid-area: picture;
   height: 100%;
+  transition: transform .5s;
+}
+
+.element__pic-container:hover {
+  transform: scale(1.03);
 }

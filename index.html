@@ -22,7 +22,7 @@
             <p class="profile__subtitle">Исследователь океана</p>
             <button type="button" class="profile__edit-button"><img class="profile__edit-icon" src="./images/edit__button.svg" alt="Иконка редактирования"></button>
           </div>
-          <button type="button" class="profile__add-button"><img class="profile__add-icon" src="./images/add_button.svg" alt=""></button>
+          <button type="button" class="profile__add-button"><img class="profile__add-icon" src="./images/add_button.svg" alt="Кнопка добавить"></button>
         </section>
         <section class="elements page__elements" aria-label="Блок с карточками">
         </section>
@@ -33,12 +33,12 @@
     </div>
     <div class="popup popup_type_edit">
       <div class="popup__container">
-        <button type="button" class="popup__close popup__close_edit"></button>
+        <button type="button" class="popup__close popup__close_type_edit"></button>
         <div class="popup__content">
           <h2 class="popup__title">Редактировать профиль</h2>
           <form class="popup__form" action="#" method="post" name="popup">
-            <input class="popup__input popup__input_profile_name" placeholder ="Жак-Ив Кусто" type="text" name="name" value="">
-            <input class="popup__input popup__input_profile_job" placeholder ="Исследователь океана" type="text" name="job" value="">
+            <input class="popup__input popup__input_profile_name" placeholder ="Жак-Ив Кусто" type="text" name="name" value="" required>
+            <input class="popup__input popup__input_profile_job" placeholder ="Исследователь океана" type="text" name="job" value="" required>
             <button class="popup__submit" type="submit">Сохранить</button>
           </form>
         </div>
@@ -50,8 +50,8 @@
         <div class="popup__content">
           <h2 class="popup__title">Новое место</h2>
           <form class="popup__form" action="#" method="post" name="popup">
-            <input class="popup__input popup__input_element_description" placeholder ="Название" type="text" name="name" value="">
-            <input class="popup__input popup__input_element_link" placeholder ="Ссылка на картинку" type="text" name="link" value="">
+            <input class="popup__input popup__input_element_description" placeholder ="Название" type="text" name="description" value="" required>
+            <input class="popup__input popup__input_element_link" placeholder ="Ссылка на картинку" type="url" name="link" value="" required>
             <button class="popup__submit" type="submit">Создать</button>
           </form>
         </div>
@@ -76,6 +76,7 @@
         <button type="button" class="element__delete"></button>
       </article>
     </template>
+    <script src="./scripts/initial-сards.js"></script>
     <script src="./scripts/index.js"></script>
   </body>
 </html>
