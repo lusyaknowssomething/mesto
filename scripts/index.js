@@ -1,4 +1,5 @@
 //Находим попап редактирования, кнопку редактирования и закрытия
+const popups = document.querySelectorAll('.popup');
 const popupEditProfile = document.querySelector('.popup_type_edit')
 const popupEditBtn = document.querySelector('.profile__edit-button');
 const popupEditCloseBtn = popupEditProfile.querySelector('.popup__close_type_edit');
@@ -35,12 +36,31 @@ const popupImageCloseBtn = imagePopup.querySelector('.popup__close')
 // Функция открытия попапа
 function openPopup (popup) {
   popup.classList.add('popup_opened');
+  popup.addEventListener('click', clickOverlay);
+  document.addEventListener('keydown', pressEsc);
 };
 
 // Функция закрытия попапа
 function closePopup (popup) {
   popup.classList.remove('popup_opened');
 };
+
+function clickOverlay(event) {
+  if (event.target === event.currentTarget) {
+    Array.from(popups).forEach(popupElement => {
+      closePopup(popupElement);
+    });
+  };
+};
+
+function pressEsc(event) {
+  if (event.key === 'Escape') {
+    Array.from(popups).forEach(popupElement => {
+      closePopup(popupElement);
+    });
+  };
+};
+
 
 // Функция для попапа редактирования (меняет класс opened и записывает в value значения из title и subtitle)
 function openEditProfile () {
@@ -114,7 +134,6 @@ function handlerPreviewPicture(data) {
   fullSizePhoto.src = data.link;
   photoName.textContent = data.name;
   fullSizePhoto.alt = data.name;
-
   openPopup(imagePopup);
 }
 
@@ -140,3 +159,5 @@ popupCardCloseBtn.addEventListener('click', () =>  {
 newCardPopup.addEventListener('submit', handlerNewCardSubmit); //слушатель по кнопке создать новую карточку
 
 popupImageCloseBtn.addEventListener('click', () => closePopup(imagePopup)); //слушатель по картинке для закрытия полного размера
+
+

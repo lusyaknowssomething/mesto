@@ -36,9 +36,31 @@
         <button type="button" class="popup__close popup__close_type_edit"></button>
         <div class="popup__content">
           <h2 class="popup__title">Редактировать профиль</h2>
-          <form class="popup__form" action="#" method="post" name="popup_edit">
-            <input class="popup__input popup__input_profile_name" placeholder ="Жак-Ив Кусто" type="text" name="name" value="" required>
-            <input class="popup__input popup__input_profile_job" placeholder ="Исследователь океана" type="text" name="job" value="" required>
+          <form class="popup__form" action="#" method="post" name="popup_edit" novalidate>
+            <input
+              class="popup__input popup__input_profile_name"
+              placeholder ="Жак-Ив Кусто"
+              type="text"
+              name="name"
+              value=""
+              required
+              minlength="2"
+              maxlength="40"
+              id="name-card"
+            />
+            <span id="name-card-error" class="popup__error"></span>
+            <input
+              class="popup__input popup__input_profile_job"
+              placeholder ="Исследователь океана"
+              type="text"
+              name="job"
+              value=""
+              required
+              minlength="2"
+              maxlength="200"
+              id="job-card"
+            />
+            <span id="job-card-error" class="popup__error"></span>
             <button class="popup__submit" type="submit">Сохранить</button>
           </form>
         </div>
@@ -49,9 +71,29 @@
         <button type="button" class="popup__close"></button>
         <div class="popup__content">
           <h2 class="popup__title">Новое место</h2>
-          <form class="popup__form" action="#" method="post" name="popup_new-card">
-            <input class="popup__input popup__input_element_description" placeholder ="Название" type="text" name="description" value="" required>
-            <input class="popup__input popup__input_element_link" placeholder ="Ссылка на картинку" type="url" name="link" value="" required>
+          <form class="popup__form" action="#" method="post" name="popup_new-card" novalidate>
+            <input
+              class="popup__input popup__input_element_description"
+              placeholder ="Название"
+              type="text"
+              name="description"
+              value=""
+              required
+              minlength="2"
+              maxlength="30"
+              id="description-card"
+            />
+            <span id="description-card-error" class="popup__error"></span>
+            <input
+              class="popup__input popup__input_element_link"
+              placeholder ="Ссылка на картинку"
+              type="url"
+              name="link"
+              value=""
+              required
+              id="link-card"
+            />
+            <span id="link-card-error" class="popup__error"></span>
             <button class="popup__submit" type="submit">Создать</button>
           </form>
         </div>
@@ -78,5 +120,6 @@
     </template>
     <script src="./scripts/initial-сards.js"></script>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
   </body>
 </html>
