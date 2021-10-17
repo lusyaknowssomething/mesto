@@ -23,6 +23,7 @@ const newCardPopup = document.querySelector('.popup_type_new-card'); //нахо�
 const popupCardOpenBtn = document.querySelector('.profile__add-button'); //находим кнопку открытия формы для добавления карточек
 const popupCardCloseBtn = newCardPopup.querySelector('.popup__close'); //находим кнопку закрытия попапа добавления карточек
 
+
 //находим value для описания и ссылки на картинку
 const cardDescription = document.querySelector('.popup__input_element_description');
 const cardLink = document.querySelector('.popup__input_element_link');
@@ -43,21 +44,20 @@ function openPopup (popup) {
 // Функция закрытия попапа
 function closePopup (popup) {
   popup.classList.remove('popup_opened');
+  popup.removeEventListener('click', clickOverlay);
+  document.removeEventListener('keydown', pressEsc);
 };
 
 function clickOverlay(event) {
-  if (event.target === event.currentTarget) {
-    Array.from(popups).forEach(popupElement => {
-      closePopup(popupElement);
-    });
-  };
+  if(event.target === event.currentTarget) {
+    closePopup(event.target);
+  }
 };
 
 function pressEsc(event) {
   if (event.key === 'Escape') {
-    Array.from(popups).forEach(popupElement => {
-      closePopup(popupElement);
-    });
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
   };
 };
 
@@ -149,6 +149,8 @@ popupEditFormElement.addEventListener('submit', handleProfileFormSubmit); //сл
 //слушатель по по кнопке открытия попапа добавления карточек
 popupCardOpenBtn.addEventListener('click', () => {
   openPopup(newCardPopup);
+  const submitButton = newCardPopup.querySelector('.popup__submit'); //находим кнопку сабмит
+  submitButton.classList.add('popup__submit_disabled');
 });
 
 //слушатель по по кнопке закрытия попапа добавления карточек
