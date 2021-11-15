@@ -1,4 +1,4 @@
-import { openPicture, handleLike, deleteCard } from './utils.js';
+import { openPicture } from './utils.js';
 
 export class Card {
   constructor(data, cardSelector) {
@@ -28,14 +28,24 @@ export class Card {
     return this._element;
   };
 
+  _handleLike(evt) {
+    evt.target.classList.toggle('element__like_active');
+  };
 
+  _deleteCard(evt) {
+    evt.target.closest('.element').remove();
+  };
 
   _setEventListeners() {
     // лайк на карточку
-    this._element.querySelector('.element__like').addEventListener('click', handleLike);
+    this._element.querySelector('.element__like').addEventListener('click', (evt) => {
+      this._handleLike(evt);
+    });
 
     //слушатель кнопки удаления карточек
-    this._element.querySelector('.element__delete').addEventListener('click', deleteCard);
+    this._element.querySelector('.element__delete').addEventListener('click', (evt) => {
+      this._deleteCard(evt)
+    });
 
     this._element.querySelector('.element__pic-container').addEventListener('click', openPicture);
   };

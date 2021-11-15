@@ -1,4 +1,8 @@
-export {openPopup, closePopup, openPicture, handleLike, deleteCard};
+export { openPopup, closePopup, openPicture };
+
+const fullSizePhoto = document.querySelector('.popup__picture');
+const photoName = document.querySelector('.popup__name');
+const imagePopup = document.querySelector('.popup_type_image');
 
 const openPopup = function (popup) {
   popup.classList.add('popup_opened');
@@ -25,24 +29,11 @@ const _pressEsc = function (event) {
   };
 };
 
-const handleLike = function (evt) {
-  evt.target.classList.toggle('element__like_active');
-};
-
-const deleteCard = function (evt) {
-  evt.target.closest('.element').remove();
-}
 
 const openPicture = function (data) {
-  const fullSizePhoto = document.querySelector('.popup__picture');
-  const photoName = document.querySelector('.popup__name');
-  const imagePopup = document.querySelector('.popup_type_image');
-  console.log(data.target);
-  console.log(data.target.link);
   fullSizePhoto.src = data.target.src;
   photoName.textContent = data.target.alt;
   fullSizePhoto.alt = data.target.alt;
-  console.log(data._link);
   openPopup(imagePopup);
 }
 
