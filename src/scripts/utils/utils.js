@@ -1,10 +1,9 @@
-export { openPopup, closePopup, openPicture };
+/* export { openPopup, closePopup, openPicture };
 
 const fullSizePhoto = document.querySelector('.popup__picture');
 const photoName = document.querySelector('.popup__name');
 const imagePopup = document.querySelector('.popup_type_image');
-
-const openPopup = function (popup) {
+ const openPopup = function (popup) {
   popup.classList.add('popup_opened');
   popup.addEventListener('click', _clickOverlay);
   document.addEventListener('keydown', _pressEsc);
@@ -36,6 +35,6 @@ const openPicture = function (data) {
   fullSizePhoto.alt = data.target.alt;
   openPopup(imagePopup);
 }
-
+*/
 
 

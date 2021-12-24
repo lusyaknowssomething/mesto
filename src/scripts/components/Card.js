@@ -1,9 +1,8 @@
-import { openPicture } from './utils.js';
-
-export class Card {
-  constructor(data, cardSelector) {
+export default class Card {
+  constructor( {data, handleCardClick}, cardSelector) {
     this._name = data.name;
     this._link = data.link;
+    this._handleCardClick = handleCardClick;
     this._cardSelector = cardSelector;
   };
 
@@ -44,9 +43,13 @@ export class Card {
 
     //слушатель кнопки удаления карточек
     this._element.querySelector('.element__delete').addEventListener('click', (evt) => {
-      this._deleteCard(evt)
+      this._deleteCard(evt);
     });
 
-    this._element.querySelector('.element__pic-container').addEventListener('click', openPicture);
+    //слушатель открытия попапа с картинкой
+
+    this._element.querySelector('.element__pic-container').addEventListener('click', (evt) => {
+      this._handleCardClick(evt);
+    });
   };
 };
