@@ -1,11 +1,8 @@
-export { popups, popupEditProfile, popupEditBtn, popupEditFormElement,
+export { popupEditBtn, popupEditFormElement,
   nameInput, jobInput, profileTitle, profileSubtitle,
-  cardsContainer, newCardPopup, popupCardOpenBtn,
-  popupAddFormElement, cardDescription, cardLink, validationConfig,
-  fullSizePhoto, photoName, imagePopup };
+  cardsContainer, popupCardOpenBtn, popupAddFormElement,
+  validationConfig, imagePopup };
 
-//Находим попапы
-const popups = document.querySelectorAll('.popup');
 
 //Находим попап редактирования, кнопку редактирования и закрытия
 const popupEditProfile = document.querySelector('.popup_type_edit')
@@ -29,13 +26,7 @@ const newCardPopup = document.querySelector('.popup_type_new-card'); //нахо�
 const popupCardOpenBtn = document.querySelector('.profile__add-button'); //находим кнопку открытия формы для добавления карточек
 const popupAddFormElement = newCardPopup.querySelector('.popup__form');
 
-//находим value для описания и ссылки на картинку
-const cardDescription = document.querySelector('.popup__input_element_description');
-const cardLink = document.querySelector('.popup__input_element_link');
-
 //Для попапа открытия изображения
-const fullSizePhoto = document.querySelector('.popup__picture');
-const photoName = document.querySelector('.popup__name');
 const imagePopup = '.popup_type_image';
 
 const validationConfig = {
