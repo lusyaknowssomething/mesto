@@ -1,7 +1,8 @@
 export { popupEditBtn, popupEditFormElement,
   nameInput, jobInput, profileTitle, profileSubtitle,
   cardsContainer, popupCardOpenBtn, popupAddFormElement,
-  validationConfig, imagePopup };
+  validationConfig, imagePopup, profileAvatar,
+  profileAvatarContainer, popupEditAvatarElement, avatarInput };
 
 
 //Находим попап редактирования, кнопку редактирования и закрытия
@@ -15,7 +16,9 @@ const popupEditFormElement = popupEditProfile.querySelector('.popup__form');
 const nameInput = popupEditFormElement.querySelector('.popup__input_profile_name');
 const jobInput = popupEditFormElement.querySelector('.popup__input_profile_job');
 
-// Находим title и subtitle в DOM (сюда вставляются значения из формы редактирования)
+// Находим avatar, title и subtitle в DOM (сюда вставляются значения из формы редактирования)
+const profileAvatar = document.querySelector('.profile__avatar');
+const profileAvatarContainer = document.querySelector('.profile__avatar-container');
 const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
 
@@ -25,6 +28,11 @@ const cardsContainer = '.elements'; //находим контейнер для �
 const newCardPopup = document.querySelector('.popup_type_new-card'); //находим попап создания карточки
 const popupCardOpenBtn = document.querySelector('.profile__add-button'); //находим кнопку открытия формы для добавления карточек
 const popupAddFormElement = newCardPopup.querySelector('.popup__form');
+
+//редактирование аватара пользователя
+const avatarPopup = document.querySelector('.popup_type_avatar');
+const popupEditAvatarElement = avatarPopup.querySelector('.popup__form');
+const avatarInput = popupEditAvatarElement.querySelector('.popup__input_avatar');
 
 //Для попапа открытия изображения
 const imagePopup = '.popup_type_image';
