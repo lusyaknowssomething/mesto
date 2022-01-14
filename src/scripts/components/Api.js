@@ -14,7 +14,7 @@ export default class Api {
 
   //получить данные пользователя (GET)
   getUserData() {
-    return fetch(this._url, {
+    return fetch(`${this._url}/users/me`, {
       method: 'GET',
       headers: this._headers
     }).then(this._errorHandler)
@@ -22,7 +22,7 @@ export default class Api {
 
   //заменить данные пользователя (PATCH)
   patchUserData(data) {
-    return fetch(this._url, {
+    return fetch(`${this._url}/users/me`, {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify(data)
@@ -31,7 +31,7 @@ export default class Api {
 
   //получить список всех карточек в виде массива (GET)
   getCards() {
-    return fetch(this._url, {
+    return fetch(`${this._url}/cards`, {
       method: 'GET',
       headers: this._headers
     }).then(this._errorHandler)
@@ -39,7 +39,7 @@ export default class Api {
 
   //добавить карточку (POST)
   postCard(data) {
-    return fetch(this._url, {
+    return fetch(`${this._url}/cards`, {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify(data)
@@ -48,7 +48,7 @@ export default class Api {
 
   //удалить карточку (DELETE)
   deleteCard(id) {
-    return fetch(`${this._url}/${id}`, {
+    return fetch(`${this._url}/cards/${id}`, {
       method: 'DELETE',
       headers: this._headers
     }).then(this._errorHandler)
@@ -56,7 +56,7 @@ export default class Api {
 
   //поставить лайк
   putLike(id){
-    return fetch(`${this._url}/${id}/likes`, {
+    return fetch(`${this._url}/cards/${id}/likes`, {
       method: 'PUT',
       headers: this._headers
     }).then(this._errorHandler)
@@ -64,7 +64,7 @@ export default class Api {
 
   //удалить лайк
   deleteLike(id){
-    return fetch(`${this._url}/${id}/likes`, {
+    return fetch(`${this._url}/cards/${id}/likes`, {
       method: 'DELETE',
       headers: this._headers
     }).then(this._errorHandler)
@@ -72,7 +72,7 @@ export default class Api {
 
   //обновить аватар пользователя (PATCH)
   patchAvatar(data) {
-    return fetch(`${this._url}/avatar`, {
+    return fetch(`${this._url}/users/me/avatar`, {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify(data)

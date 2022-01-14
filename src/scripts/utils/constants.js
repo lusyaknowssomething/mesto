@@ -1,8 +1,9 @@
 export { popupEditBtn, popupEditFormElement,
   nameInput, jobInput, profileTitle, profileSubtitle,
   cardsContainer, popupCardOpenBtn, popupAddFormElement,
-  validationConfig, imagePopup, profileAvatar,
-  profileAvatarContainer, popupEditAvatarElement, avatarInput };
+  validationConfig, profileAvatar,
+  profileAvatarContainer, popupEditAvatarElement, avatarInput,
+  elementTemplate, popupConfig };
 
 
 //Находим попап редактирования, кнопку редактирования и закрытия
@@ -34,8 +35,15 @@ const avatarPopup = document.querySelector('.popup_type_avatar');
 const popupEditAvatarElement = avatarPopup.querySelector('.popup__form');
 const avatarInput = popupEditAvatarElement.querySelector('.popup__input_avatar');
 
-//Для попапа открытия изображения
-const imagePopup = '.popup_type_image';
+const elementTemplate = '.element__template';
+
+const popupConfig = {
+  popupImage: '.popup_type_image',
+  popupSubmit: '.popup_type_submit',
+  popupEdit: '.popup_type_edit',
+  popupNewCard: '.popup_type_new-card',
+  popupAvatar: '.popup_type_avatar'
+}
 
 const validationConfig = {
   formSelector: '.popup__form',

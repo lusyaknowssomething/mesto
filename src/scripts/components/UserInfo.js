@@ -14,8 +14,12 @@ export default class UserInfo {
 
   //принимает новые данные пользователя и добавляет их на страницу
   setUserInfo(data) {
-    this._name.textContent = data.name; //вставляем значение из формы в title
-    this._about.textContent = data.about; //вставляем значение из формы в subtitle
+    if(data.name){
+      this._name.textContent = data.name; //вставляем значение из формы в title
+    }
+    if(data.about){
+      this._about.textContent = data.about; //вставляем значение из формы в subtitle
+    }
   }
 };
 

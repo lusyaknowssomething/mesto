@@ -53,10 +53,10 @@ export default class Card {
 
   renderLikes(likes){
     const userIdLike = {_id: this._userId};
-    const res = this._likes.find(function(element) {
+    const userLike = this._likes.find(function(element) {
       return element._id === userIdLike._id ;
      });
-    if(res){
+    if(userLike){
       this.updateLikes(likes);
       this._likeBtn.classList.add('element__like_active');
     } else {
