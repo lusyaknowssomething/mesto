@@ -51,15 +51,16 @@ Promise.all([
       renderer: (cardItem) => {
         const newCard = createCard(cardItem, elementTemplate);
         const newCardElement = newCard.createCard();
-        cardsList.addItem(newCardElement);
-
+        cardsList.addItemAppend(newCardElement);
       },
     }, cardsContainer);
 
-    cardsList.renderItems(userId);
-  }).catch((err) => {
+    cardsList.renderItems();
+  })
+  .catch((err) => {
     console.log(err); // выведем ошибку в консоль
   });
+
 
 //попап подтверждения удаления карточки
 const popupWithSubmitDelete = new PopupWithSubmit({
@@ -76,26 +77,13 @@ const popupWithSubmitDelete = new PopupWithSubmit({
 }, popupConfig.popupSubmit);
 
 
-//добавляем лайки к карточкам с сервера
-function setLike(card) {
-  const cardID = card._id;
-  api
-    .getCards()
-    .then((data) => {
-      const item = Object.keys(data).filter(item => data[item]._id === cardID).map(item => data[item]);
-      const itemLength = item[0].likes.length;
-      card.updateLikes(itemLength);
-      card.renderLikes(itemLength);
-    }).catch((err) => {
-      console.log(err); // выведем ошибку в консоль
-    });
-}
 
 //переключем активное и неактивное состояние лайка на сервере и проставляем количество
 const handleLikeActive = (id, renderLikesCallback) => {
   api
     .putLike(id)
-    .then((res) => { renderLikesCallback(res.likes.length) })
+    .then((res) => { console.log(res)
+      renderLikesCallback(res.likes.length) })
     .catch((err) => { console.log(err); })
 }
 const handleLikeDeactive = (id, renderLikesCallback) => {
@@ -110,7 +98,6 @@ const handleDeleteIconClick = (card, id) => {
   popupWithSubmitDelete.open(card, id)
 }
 
-
 //функция создания карточки
 function createCard(cardItem, elementTemplate) {
   const cardElement = new Card({
@@ -120,9 +107,8 @@ function createCard(cardItem, elementTemplate) {
     },
     handleLikeActive,
     handleLikeDeactive,
-    handleDeleteIconClick
-  }, elementTemplate, userId);
-  setLike(cardElement);
+    handleDeleteIconClick,
+    }, elementTemplate, userId, );
 
   return cardElement;
 }
@@ -184,7 +170,7 @@ const popupAddCard = new PopupWithForm({
     then((res)  => {
       const newCard = createCard(res, elementTemplate);
       const cardElement = newCard.createCard();
-      cardsList.addItem(cardElement);
+      cardsList.addItemPrepend(cardElement);
       popupAddCard.close();
     })
     .catch((err) => {

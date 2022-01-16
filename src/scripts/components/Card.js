@@ -1,5 +1,5 @@
 export default class Card {
-  constructor( {data, handleCardClick, handleLikeActive, handleLikeDeactive, handleDeleteIconClick}, cardSelector, userId) {
+  constructor( {data, handleCardClick, handleLikeActive, handleLikeDeactive, handleDeleteIconClick }, cardSelector, userId) {
     this._name = data.name;
     this._link = data.link;
     this._id = data._id;
@@ -35,9 +35,12 @@ export default class Card {
     this._deleteBtn = this._element.querySelector('.element__delete');
     this._setEventListeners();
     this._renderDeleteIconClick();
+    this._renderLikes(this._likes.length);
 
     return this._element;
   };
+
+
 
   //выставляем кнопку удаления своим карточкам
   _renderDeleteIconClick() {
@@ -48,10 +51,11 @@ export default class Card {
 
   //обновляем число лайков
   updateLikes = (likes) => {
+    //console.dir(this)
     this._cardLike.textContent = likes;
   }
 
-  renderLikes(likes){
+  _renderLikes(likes){
     const userIdLike = {_id: this._userId};
     const userLike = this._likes.find(function(element) {
       return element._id === userIdLike._id ;
@@ -64,6 +68,7 @@ export default class Card {
       this._likeBtn.classList.remove('element__like_active');
     }
   }
+
 
   _handleLike(evt) {
     if(evt.target.classList.contains('element__like_active')){

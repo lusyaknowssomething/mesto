@@ -6,21 +6,16 @@ export default class Section {
   };
 
   //добавлем карточки из массива на страничку
-  renderItems(userId) {
-    this._renderedItems.forEach(item => {
-    if (item.owner._id !== userId) {
-      this._renderer(item)
-    }
-  })
-    this._renderedItems.forEach( item => {
-      if (item.owner._id === userId) {
-        this._renderer(item)
-      }
-    })
-  };
+  renderItems() {
+    this._renderedItems.forEach(item => this._renderer(item))
+  }
 
   //функция добавления готовой разметки
-  addItem(element) {
+  addItemPrepend(element) {
     this._container.prepend(element);
+  };
+
+  addItemAppend(element) {
+    this._container.append(element);
   };
 }
